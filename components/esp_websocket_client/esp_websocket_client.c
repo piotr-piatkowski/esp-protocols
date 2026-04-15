@@ -1654,3 +1654,11 @@ esp_err_t esp_websocket_unregister_events(esp_websocket_client_handle_t client,
     }
     return esp_event_handler_unregister_with(client->event_handle, WEBSOCKET_EVENTS, event, event_handler);
 }
+
+int esp_websocket_client_get_socket(esp_websocket_client_handle_t client)
+{
+    if (!client || !client->transport) {
+        return -1;
+    }
+    return esp_transport_get_socket(client->transport);
+}

@@ -489,6 +489,15 @@ esp_err_t esp_websocket_unregister_events(esp_websocket_client_handle_t client,
                                           esp_websocket_event_id_t event,
                                           esp_event_handler_t event_handler);
 
+/**
+ * @brief Get the underlying TCP socket file descriptor.
+ *        Only valid while the client is connected.
+ *
+ * @param client  WebSocket client handle
+ * @return socket fd, or -1 if not available
+ */
+int esp_websocket_client_get_socket(esp_websocket_client_handle_t client);
+
 #ifdef __cplusplus
 }
 #endif
